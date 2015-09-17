@@ -1,6 +1,8 @@
 package com.example.com.myapplication;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,9 +29,38 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
 
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("http://www.nate.com"));
+                startActivity(intent);
+
             }
         });
 
+        b2.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:911"));
+                startActivity(intent);
+            }
+        });
+
+        b3.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v){
+
+                Uri uri = Uri.parse("content://media/external/images/media");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
+        b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finish();
+            }
+        });
     }
 
     @Override
